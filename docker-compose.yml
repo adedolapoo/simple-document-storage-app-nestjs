@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  db:
+    image: mysql:5.7
+    container_name: nogic_storage
+    ports:
+      - '3362:3306'
+    environment:
+      MYSQL_DATABASE: vas_storage
+      MYSQL_USER: vas
+      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: password
+      SERVICE_TAGS: dev
+      SERVICE_NAME: mysql
+    networks:
+      - nestjs-network
+networks:
+  nestjs-network:
